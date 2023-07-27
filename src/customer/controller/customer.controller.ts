@@ -7,10 +7,10 @@ import {
   Query,
   Patch,
 } from '@nestjs/common';
-import { CustomerService } from './customer.service';
-import { CreateCustomerDto } from './dto/create-customer.dto';
+import { CustomerService } from '../service/customer.service';
+import { CreateCustomerDto } from '../dto/create-customer.dto';
 import { PaginationDto } from 'src/common/dtos/pagination.dto';
-import { UpdateCustomerDto } from './dto/update-customer.dto';
+import { UpdateCustomerDto } from '../dto/update-customer.dto';
 
 @Controller('customer')
 export class CustomerController {

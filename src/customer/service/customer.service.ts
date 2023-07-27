@@ -6,14 +6,14 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
-import { CreateCustomerDto } from './dto/create-customer.dto';
+import { CreateCustomerDto } from '../dto/create-customer.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Customer } from './entities/customer.entity';
-import { PaginationDto } from '../common/dtos/pagination.dto';
+import { Customer } from '../entities/customer.entity';
+import { PaginationDto } from '../../common/dtos/pagination.dto';
 
 import { validate as isUUID } from 'uuid';
-import { UpdateCustomerDto } from './dto/update-customer.dto';
+import { UpdateCustomerDto } from '../dto/update-customer.dto';
 
 @Injectable()
 export class CustomerService {
