@@ -1,12 +1,6 @@
-import {
-  IsString,
-  MaxLength,
-  MinLength,
-  Matches,
-  IsOptional,
-} from 'class-validator';
+import { IsString, Matches, MaxLength, MinLength } from 'class-validator';
 
-export class CreateCustomerDto {
+export class LoginCustomerDto {
   @IsString()
   @MaxLength(8)
   dni: string;
@@ -19,9 +13,4 @@ export class CreateCustomerDto {
       'The password must have a Uppercase, lowercase letter and a number',
   })
   password: string;
-
-  @IsString()
-  @IsOptional()
-  @MinLength(1)
-  fullName?: string;
 }

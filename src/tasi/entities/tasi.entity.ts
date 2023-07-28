@@ -1,5 +1,5 @@
-import { Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Customer } from './customer.entity';
+import { Customer } from 'src/customer/entities/customer.entity';
+import { Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Account } from './account.entity';
 
 @Entity('tasi')
@@ -7,7 +7,7 @@ export class Tasi {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @OneToOne(() => Customer, (customer) => customer.tasi)
+  @ManyToOne(() => Customer, (customer) => customer.tasi, { eager: true })
   customer: Customer;
 
   @OneToMany(() => Account, (account) => account.tasi, { cascade: true })

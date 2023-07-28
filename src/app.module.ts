@@ -1,13 +1,18 @@
+import { join } from 'path';
+
 import { Module } from '@nestjs/common';
-import { CustomerModule } from './customer/module/customer.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ServeStaticModule } from '@nestjs/serve-static';
+
 import { CommonModule } from './common/common.module';
+import { CustomerModule } from './customer/customer.module';
+import { TasiModule } from './tasi/tasi.module';
 
 @Module({
   imports: [
-    CustomerModule,
     ConfigModule.forRoot(),
+
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -18,10 +23,16 @@ import { CommonModule } from './common/common.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
+
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'),
+    }),
+
     CommonModule,
+
+    CustomerModule,
+
+    TasiModule,
   ],
-  controllers: [],
-  providers: [],
-  exports: [],
 })
 export class AppModule {}
