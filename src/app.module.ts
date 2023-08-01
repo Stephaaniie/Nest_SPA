@@ -7,7 +7,8 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 
 import { CommonModule } from './common/common.module';
 import { CustomerModule } from './customer/customer.module';
-import { TasiModule } from './tasi/tasi.module';
+import { SeedModule } from './seed/seed.module';
+import { OperationsModule } from './operations/operations.module';
 
 @Module({
   imports: [
@@ -31,8 +32,10 @@ import { TasiModule } from './tasi/tasi.module';
     CommonModule,
 
     CustomerModule,
-
-    TasiModule,
+    
+    SeedModule,
+    
+    OperationsModule,
   ],
 })
 export class AppModule {}

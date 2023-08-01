@@ -3,11 +3,9 @@ import {
   Injectable,
   InternalServerErrorException,
   Logger,
-  NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
 
-import { validate as isUUID } from 'uuid';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
@@ -15,9 +13,7 @@ import * as bcrypt from 'bcrypt';
 
 import { Customer } from './entities/customer.entity';
 
-import { PaginationDto } from 'src/common/dtos/pagination.dto';
 import { CreateCustomerDto } from './dto/create-customer.dto';
-import { UpdateCustomerDto } from './dto/update-customer.dto';
 import { LoginCustomerDto } from './dto/login.customer.dto';
 import { JwtService } from '@nestjs/jwt';
 import { JwtPayload } from './interface/jwt-payload.interface';
@@ -71,47 +67,11 @@ export class CustomerService {
     };
   }
 
-  async findAll(paginationDto: PaginationDto) {
-    const { limit = 10, offset = 0 } = paginationDto;
-
-    return await this.customerRepository.find({
-      take: limit,
-      skip: offset,
-    });
-  }
-
-  async findOne(term: string) {
-    let customer: Customer;
-    if (isUUID(term)) {
-      customer = await this.customerRepository.findOneBy({ id: term });
-    } else {
-      const queryBuilder = this.customerRepository.createQueryBuilder();
-
-      customer = await queryBuilder
-        .where('dni=:dni or password=:password', {
-          dni: term,
-          password: term,
-        })
-        .getOne();
-    }
-    if (!customer)
-      throw new NotFoundException(`Customer with id ${term} not found`);
-    return customer;
-  }
-
-  async update(id: string, updateCustomerDto: UpdateCustomerDto) {
-    const customer = await this.customerRepository.preload({
-      id: id,
-      ...updateCustomerDto,
-    });
-    if (!customer)
-      throw new NotFoundException(`Customer with id: ${id} not found`);
-    try {
-      await this.customerRepository.save(customer);
-      return customer;
-    } catch (error) {
-      this.handleDBExceptions(error);
-    }
+  async checkAuthStatus(customer: Customer) {
+    return {
+      ...customer,
+      token: this.getJwtToken({ dni: customer.id }),
+    };
   }
 
   private getJwtToken(payload: JwtPayload) {

@@ -1,12 +1,10 @@
 # Nest_SPA
-Desarrollar una SPA en Nest, de un cajero automático (TASI), que permita realizar operaciones como: extracción, depósito y consulta de saldo. La misma puede estar desarrollada bajo el paradigma de class o de component function.
+Desarrollar una SPA (Single Page Application) en React con TS, de un cajero automático (TASI), que permita realizar operaciones como: extracción, depósito y consulta de saldo. 
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-
-# Teslo API
 
 1. Clonar proyecto
 2. ```yarn install```
@@ -18,3 +16,10 @@ docker-compose up -d
 ```
 
 6. Levantar: ```yarn start:dev```
+
+7. Ejecutar SEED 
+```
+http://localhost:3000/api/seed
+```
+
+

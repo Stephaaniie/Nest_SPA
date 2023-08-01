@@ -4,28 +4,16 @@ import {
   Post,
   Body,
   Get,
-  Param,
-  Query,
-  Patch,
   UseGuards,
   Req,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-
+import { AuthGuard } from '@nestjs/passport'; 
 import { CustomerService } from './customer.service';
-
-import { LoginCustomerDto } from './dto/login.customer.dto';
-import { CreateCustomerDto } from './dto/create-customer.dto';
-import { UpdateCustomerDto } from './dto/update-customer.dto';
-import { PaginationDto } from 'src/common/dtos/pagination.dto';
-
-import { RawHeaders } from './decoration/raw-headers.decorator';
-import { GetCustomer } from './decoration/get-customer.decorator';
-import { RoleProtected } from './decoration/role-protected.decorator';
-
+import { LoginCustomerDto, CreateCustomerDto } from './dto';
+import { RawHeaders, GetCustomer, RoleProtected, Auth } from './decorators';
 import { ValidRoles } from './interface/valid-roles';
 import { Customer } from './entities/customer.entity';
-import { UserRoleGuard } from './guards/user-role/user-role.guard';
+import { UserRoleGuard } from './guards/user-role.guard';
 
 @Controller('customer')
 export class CustomerController {
@@ -39,6 +27,14 @@ export class CustomerController {
   @Post('login')
   login(@Body() loginCustomerDto: LoginCustomerDto) {
     return this.customerService.login(loginCustomerDto);
+  }
+
+  @Get('check-status')
+  @Auth()
+  checkAuthStatus(
+    @GetCustomer() customer: Customer
+  ) {
+    return this.customerService.checkAuthStatus( customer );
   }
 
   @Get('private')
@@ -55,23 +51,5 @@ export class CustomerController {
       dniCustomer,
       rawheaders
     };
-  }
-
-  @Get()
-  findAll(@Query() paginationDto: PaginationDto) {
-    return this.customerService.findAll(paginationDto);
-  }
-
-  @Get(':term')
-  findOne(@Param('term') term: string) {
-    return this.customerService.findOne(term);
-  }
-
-  @Patch(':term')
-  update(
-    @Param('term') term: string,
-    @Body() updateCustomerDto: UpdateCustomerDto,
-  ) {
-    return this.customerService.update(term, updateCustomerDto);
   }
 }

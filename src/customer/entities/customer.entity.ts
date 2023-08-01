@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Tasi } from '../../tasi/entities/tasi.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne } from 'typeorm';
+import { Operation } from '../../operations/entities/operation.entity';
 
 @Entity('customers')
 export class Customer {
@@ -30,6 +30,6 @@ export class Customer {
   })
   roles: string[];
 
-  @OneToMany(() => Tasi, (tasi) => tasi.customer)
-  tasi?: Tasi;
+  @OneToOne(() => Operation, (op) => op.customer)
+  operation?: Operation;
 }
