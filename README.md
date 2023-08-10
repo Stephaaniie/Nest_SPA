@@ -27,4 +27,9 @@ http://localhost:3000/api/seed
 http://localhost:3000/api
 
 ```
+9. Deployado en Railway utilizando Postgres
 
+```
+https://nestspa-production.up.railway.app/api/seed
+```
+<img width="905" alt="image" src="https://github.com/Stephaaniie/Nest_SPA/assets/52474816/59a621ff-4752-4dfd-bb2a-f22867af3b51">
