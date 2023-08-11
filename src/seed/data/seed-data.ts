@@ -21,120 +21,120 @@ interface SeedData {
 export const initialData: SeedData = {
     customers: [
         {
-            dni: '37161616',
-            password: bcrypt.hashSync('Abc123', 10),
-            fullName: 'Test 1',
+            dni: '48414099',
+            password: bcrypt.hashSync('1234', 10),
+            fullName: 'Stephanie Castillo',
             roles: ['admin']
         },
         {
             dni: '37161619',
-            password: bcrypt.hashSync('Abc124', 10),
-            fullName: 'Test 2',
+            password: bcrypt.hashSync('5678', 10),
+            fullName: 'Facundo Carballal',
             roles: ['user', 'super']
         },
         {
             dni: '37161618',
-            password: bcrypt.hashSync('Abc125', 10),
-            fullName: 'Test 3',
+            password: bcrypt.hashSync('9101', 10),
+            fullName: 'Antonnela Russo',
             roles: ['admin']
         },
         {
             dni: '37161613',
-            password: bcrypt.hashSync('Abc126', 10),
-            fullName: 'Test 4',
+            password: bcrypt.hashSync('1121', 10),
+            fullName: 'Benito Bannie',
             roles: ['user', 'super']
         }
     ],
     operations: [
         {
             importe: 500.000,
-            tipoOperacion: 'Extraccion',
-            detalle: 'jfhhkhjhjhjhj',
+            tipoOperacion: 'Extracción',
+            detalle: 'Extracción',
         },
         {
             importe: 300.000,
             tipoOperacion: 'Deposito',
-            detalle: 'jfhhkhjhjhhhhjhj',
+            detalle: 'Deposito',
         },
         {
             importe: 500.000,
-            tipoOperacion: 'Extraccion',
-            detalle: 'jfhhkhjhjhjhj' 
+            tipoOperacion: 'Extracción',
+            detalle: 'Extracción' 
         },
         {
             importe: 300.000,
             tipoOperacion: 'Deposito',
-            detalle: 'jfhhkhjhjhhhhjhj',
+            detalle: 'Deposito',
         },
         {
             importe: 500.000,
-            tipoOperacion: 'Extraccion',
-            detalle: 'jfhhkhjhjhjhj',
+            tipoOperacion: 'Extracción',
+            detalle: 'Extracción',
         },
         {
             importe: 300.000,
             tipoOperacion: 'Deposito',
-            detalle: 'jfhhkhjhjhhhhjhj',
+            detalle: 'Deposito',
         },
         {
             importe: 500.000,
-            tipoOperacion: 'Extraccion',
-            detalle: 'jfhhkhjhjhjhj'
+            tipoOperacion: 'Extracción',
+            detalle: 'Extracción'
         },
         {
             importe: 300.000,
             tipoOperacion: 'Deposito',
-            detalle: 'jfhhkhjhjhhhhjhj',
+            detalle: 'Deposito',
         },
         {
             importe: 500.000,
-            tipoOperacion: 'Extraccion',
-            detalle: 'jfhhkhjhjhjhj',
+            tipoOperacion: 'Extracción',
+            detalle: 'Extracción',
         },
         {
             importe: 300.000,
             tipoOperacion: 'Deposito',
-            detalle: 'jfhhkhjhjhhhhjhj',
+            detalle: 'Deposito',
         },
         {
             importe: 500.000,
-            tipoOperacion: 'Extraccion',
-            detalle: 'jfhhkhjhjhjhj',
+            tipoOperacion: 'Extracción',
+            detalle: 'Extracción',
         },
         {
             importe: 300.000,
             tipoOperacion: 'Deposito',
-            detalle: 'jfhhkhjhjhhhhjhj'
+            detalle: 'Deposito'
         },
         {        
             importe: 500.000,
-            tipoOperacion: 'Extraccion',
-            detalle: 'jfhhkhjhjhjhj',
+            tipoOperacion: 'Extracción',
+            detalle: 'Extracción',
         },
         {
             importe: 300.000,
             tipoOperacion: 'Deposito',
-            detalle: 'jfhhkhjhjhhhhjhj',
+            detalle: 'Deposito',
         },
         {
             importe: 500.000,
-            tipoOperacion: 'Extraccion',
-            detalle: 'jfhhkhjhjhjhj',
+            tipoOperacion: 'Extracción',
+            detalle: 'Extracción',
         },
         {
             importe: 300.000,
             tipoOperacion: 'Deposito',
-            detalle: 'jfhhkhjhjhhhhjhj'
+            detalle: 'Deposito'
         },
         {
             importe: 500.000,
-            tipoOperacion: 'Extraccion',
-            detalle: 'jfhhkhjhjhjhj',
+            tipoOperacion: 'Extracción',
+            detalle: 'Extracción',
         },
         {
             importe: 300.000,
             tipoOperacion: 'Deposito',
-            detalle: 'jfhhkhjhjhhhhjhj',
+            detalle: 'Deposito',
         }
     ],
 }
