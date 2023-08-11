@@ -13,11 +13,11 @@ export class LoginCustomerDto {
 
   @ApiProperty({
     description: 'The password must have a Uppercase, lowercase letter and a number',
-    example: 'Abc123@'
+    example: '1234'
   })
   @IsString()
-  @MinLength(6)
-  @MaxLength(8)
+  @MinLength(4)
+  @MaxLength(4)
   @Matches(/(?:(?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
     message:
       'The password must have a Uppercase, lowercase letter and a number',
