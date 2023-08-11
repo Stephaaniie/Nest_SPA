@@ -17,17 +17,19 @@ export class CreateCustomerDto {
   @MaxLength(8)
   dni: string;
 
+  /**
+   *  @Matches(/(?:(?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
+    message:
+      'The password must have a Uppercase, lowercase letter and a number',
+  })
+   */
   @ApiProperty({
     description: 'The password must have a Uppercase, lowercase letter and a number',
-    example: 'Abc123@'
+    example: '1234'
   })
   @IsString()
   @MinLength(6)
   @MaxLength(8)
-  @Matches(/(?:(?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
-    message:
-      'The password must have a Uppercase, lowercase letter and a number',
-  })
   password: string;
 
   @ApiProperty({
