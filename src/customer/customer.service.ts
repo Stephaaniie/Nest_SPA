@@ -53,7 +53,14 @@ export class CustomerService {
 
     const customer = await this.customerRepository.findOne({
       where: { dni },
-      select: { dni: true, password: true, id: true },
+      select: { 
+        dni: true, 
+        password: true, 
+        fullName: true,
+        id: true,
+        isActive: true,
+        roles: true,
+      },
     });
     if (!customer)
       throw new UnauthorizedException('Credentials are not valid (dni)');
