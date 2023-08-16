@@ -1,9 +1,6 @@
-import { join } from 'path';
-
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ServeStaticModule } from '@nestjs/serve-static';
 
 import { CommonModule } from './common/common.module';
 import { CustomerModule } from './customer/customer.module';
@@ -29,10 +26,6 @@ import { OperationsModule } from './operations/operations.module';
       password: process.env.DB_PASSWORD,
       autoLoadEntities: true,
       synchronize: true,
-    }),
-
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'),
     }),
 
     CommonModule,
